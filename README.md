@@ -85,11 +85,9 @@ This brings a lot of convenience, since you don't have to handle version conflic
 
 To use rslidar_sdk in the ROS2 environment, please install below libraries.
 + Ubuntu 16.04 - Not supported
-+ Ubuntu 18.04 - ROS2 Eloquent desktop
++ Ubuntu 18.04 - Not supported
 + Ubuntu 20.04 - ROS2 Galactic desktop
 + Ubuntu 22.04 - ROS2 Humble desktop
-
-For installation, please refer to https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/
 
 **Please do not install ROS and ROS2 on the same computer, to avoid possible conflict and manually install some libraries, such as Yaml.**
 
