@@ -26,8 +26,6 @@ Install the deb and set the right config_path. If leave the config_path empty, i
   <node pkg="rslidar_sdk" name="rslidar_sdk_node" type="rslidar_sdk_node" output="screen">
     <param name="config_path" value=""/>
   </node>
-  <!-- rviz -->
-  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find rslidar_sdk)/rviz/rviz.rviz" />
 </launch>
 ```
 

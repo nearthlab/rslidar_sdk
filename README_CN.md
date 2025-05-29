@@ -123,7 +123,7 @@ sudo apt-get install -y  libpcap-dev
 ```sh
 catkin_make
 source devel/setup.bash
-roslaunch rslidar_sdk start.launch
+roslaunch rslidar_sdk run.launch
 ```
 
 ### 1.4.2 依赖于ROS2-colcon编译
@@ -137,10 +137,10 @@ roslaunch rslidar_sdk start.launch
 ```sh
 colcon build
 source install/setup.bash
-ros2 launch rslidar_sdk start.py
+ros2 launch rslidar_sdk run.launch.py
 ```
 
-不同ROS2版本start.py的格式可能不同，请使用对应版本的start.py。如ROS2 Elequent，请使用elequent_start.py。
+不同ROS2版本run.launch.py的格式可能不同，请使用对应版本的run.launch.py。
 
 
 
