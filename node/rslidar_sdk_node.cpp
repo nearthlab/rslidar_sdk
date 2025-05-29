@@ -86,23 +86,25 @@ int main(int argc, char** argv)
    config_path = (std::string)PROJECT_PATH;
 #endif
 
-   config_path += "/config/config.yaml";
+   config_path += "/config/";
 
 #ifdef ROS_FOUND
   ros::NodeHandle priv_hh("~");
-  std::string path;
-  priv_hh.param("config_path", path, std::string(""));
+  std::string filename;
+  priv_hh.param("config_file", filename, std::string(""));
 #elif ROS2_FOUND
   std::shared_ptr<rclcpp::Node> nd = rclcpp::Node::make_shared("param_handle");
-  std::string path = nd->declare_parameter<std::string>("config_path", "");
+  std::string filename = nd->declare_parameter<std::string>("config_file", "");
 #endif
 
-#if defined(ROS_FOUND) || defined(ROS2_FOUND)
-  if (!path.empty())
+  if (filename.empty())
   {
-    config_path = path;
+    config_path += "config.yaml";
   }
-#endif
+  else
+  {
+    config_path += filename;
+  }
 
   YAML::Node config;
   try

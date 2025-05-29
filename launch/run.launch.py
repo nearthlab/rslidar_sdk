@@ -6,5 +6,5 @@ def generate_launch_description():
     config_file = '' # your config file path
     
     return LaunchDescription([
-        Node(namespace='rslidar_sdk', package='rslidar_sdk', executable='rslidar_sdk_node', output='screen', parameters=[{'config_path': config_file}]),
+        Node(namespace='rslidar_sdk', package='rslidar_sdk', executable='rslidar_sdk_node', output='screen', parameters=[{'config_file': config_file}]),
     ])
