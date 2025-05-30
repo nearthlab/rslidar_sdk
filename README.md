@@ -1,10 +1,15 @@
 # 1 **rslidar_sdk**
 
- [中文介绍](README_CN.md) 
+## 0 Changelog
 
-
+- 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Convert acceleration output unit: from `g` to `m/s^2`
+  - Add [airy configuration](./config/airy_ftrc.yaml) and make it default
+  - Deprecate rviz & separate ROS2 Eloquent support
 
 ## 1 Introduction
+
+ [中文介绍](README_CN.md) 
 
 **rslidar_sdk** is the Software Development Kit of the RoboSense Lidar based on Ubuntu. It contains:
 
