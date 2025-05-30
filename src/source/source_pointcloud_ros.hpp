@@ -191,7 +191,8 @@ sensor_msgs::Imu toRosMsg(const std::shared_ptr<ImuData>& data, const std::strin
   imu_msg.angular_velocity.y = data->angular_velocity_y;
   imu_msg.angular_velocity.z = data->angular_velocity_z;
 
-  constexpr float kOneG = 9.80665f; // 1G in m/s^2
+  // patch(jwpark): acceleration in m/s^2 not g
+  constexpr float kOneG = 9.80665f;
   imu_msg.linear_acceleration.x = data->linear_acceleration_x * kOneG;
   imu_msg.linear_acceleration.y = data->linear_acceleration_y * kOneG;
   imu_msg.linear_acceleration.z = data->linear_acceleration_z * kOneG;
@@ -421,7 +422,8 @@ sensor_msgs::msg::Imu toRosMsg(const std::shared_ptr<ImuData>& data, const std::
   imu_msg.angular_velocity.y = data->angular_velocity_y;
   imu_msg.angular_velocity.z = data->angular_velocity_z;
 
-  constexpr float kOneG = 9.80665f; // 1G in m/s^2
+  // patch(jwpark): acceleration in m/s^2 not g
+  constexpr float kOneG = 9.80665f;
   imu_msg.linear_acceleration.x = data->linear_acceleration_x * kOneG;
   imu_msg.linear_acceleration.y = data->linear_acceleration_y * kOneG;
   imu_msg.linear_acceleration.z = data->linear_acceleration_z * kOneG;
