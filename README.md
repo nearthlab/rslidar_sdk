@@ -3,6 +3,8 @@
 ## 0 Changelog
 
 - 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Correct ROS2 launch file to be configurable
+- 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
   - Convert acceleration output unit: from `g` to `m/s^2`
   - Add [airy configuration](./config/airy_ftrc.yaml) and make it default
   - Deprecate rviz & separate ROS2 Eloquent support
