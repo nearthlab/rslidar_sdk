@@ -1,10 +1,15 @@
 # 1 **rslidar_sdk**
 
- [中文介绍](README_CN.md) 
+## 0 Changelog
 
-
+- 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Convert acceleration output unit: from `g` to `m/s^2`
+  - Add [airy configuration](./config/airy_ftrc.yaml) and make it default
+  - Deprecate rviz & separate ROS2 Eloquent support
 
 ## 1 Introduction
+
+ [中文介绍](README_CN.md) 
 
 **rslidar_sdk** is the Software Development Kit of the RoboSense Lidar based on Ubuntu. It contains:
 
@@ -85,11 +90,9 @@ This brings a lot of convenience, since you don't have to handle version conflic
 
 To use rslidar_sdk in the ROS2 environment, please install below libraries.
 + Ubuntu 16.04 - Not supported
-+ Ubuntu 18.04 - ROS2 Eloquent desktop
++ Ubuntu 18.04 - Not supported
 + Ubuntu 20.04 - ROS2 Galactic desktop
 + Ubuntu 22.04 - ROS2 Humble desktop
-
-For installation, please refer to https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/
 
 **Please do not install ROS and ROS2 on the same computer, to avoid possible conflict and manually install some libraries, such as Yaml.**
 
@@ -130,7 +133,7 @@ sudo apt-get install -y  libpcap-dev
 ```sh
 catkin_make
 source devel/setup.bash
-roslaunch rslidar_sdk start.launch
+roslaunch rslidar_sdk run.launch
 ```
 
 ### 4.2 Compile with ROS2 colcon
@@ -143,10 +146,10 @@ roslaunch rslidar_sdk start.launch
 ```sh
 colcon build
 source install/setup.bash
-ros2 launch rslidar_sdk start.py
+ros2 launch rslidar_sdk run.launch.py
 ```
 
-Another version of start.py may be used, since it is different on different versios of ROS2. For example, elequent_start.py is used instead for ROS2 elequent.
+Another version of run.launch.py may be used, since it is different on different versios of ROS2.
 
 
 

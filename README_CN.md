@@ -81,11 +81,9 @@ git submodule update
 
 在ROS2环境下使用雷达驱动，需要安装ROS2相关依赖库。
 + Ubuntu 16.04 - 不支持
-+ Ubuntu 18.04 - ROS2 Eloquent desktop
++ Ubuntu 18.04 - 不支持
 + Ubuntu 20.04 - ROS2 Galactic desktop
 + Ubuntu 22.04 - ROS2 Humble desktop
-
-安装方法请参考 https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/
 
 **请不要在一台电脑上同时安装ROS和ROS2，以避免可能的版本冲突，和手工安装其他库（如Yaml）的麻烦。**
 
@@ -125,7 +123,7 @@ sudo apt-get install -y  libpcap-dev
 ```sh
 catkin_make
 source devel/setup.bash
-roslaunch rslidar_sdk start.launch
+roslaunch rslidar_sdk run.launch
 ```
 
 ### 1.4.2 依赖于ROS2-colcon编译
@@ -139,10 +137,10 @@ roslaunch rslidar_sdk start.launch
 ```sh
 colcon build
 source install/setup.bash
-ros2 launch rslidar_sdk start.py
+ros2 launch rslidar_sdk run.launch.py
 ```
 
-不同ROS2版本start.py的格式可能不同，请使用对应版本的start.py。如ROS2 Elequent，请使用elequent_start.py。
+不同ROS2版本run.launch.py的格式可能不同，请使用对应版本的run.launch.py。
 
 
 
