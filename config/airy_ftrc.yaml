@@ -18,7 +18,6 @@ lidar:
       user_layer_bytes: 0          # Bytes of user layer. thers is no user layer if it is 0
       tail_layer_bytes: 0          # Bytes of tail layer. thers is no tail layer if it is 0
 
-
       min_distance: 0.2            # Minimum distance of point cloud
       max_distance: 200            # Maximum distance of point cloud
       use_lidar_clock: true        # true: use the lidar clock as the message timestamp; false: use the system clock as the timestamp
@@ -34,6 +33,13 @@ lidar:
       pcap_repeat: true            # true: The pcap bag will repeat play   
       pcap_rate: 1.0               # Rate to read the pcap file
       pcap_path: /home/robosense/lidar.pcap #The path of pcap file
+
+      x: 0
+      y: 0
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 0
 
     ros:
       ros_frame_id: rslidar                       #  Frame id of packet message and point cloud message
