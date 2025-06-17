@@ -2,6 +2,8 @@
 
 ## 0 Changelog
 
+- 2025-06-17 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Default POINT_TYPE: XYZIRT to include timestamp
 - 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
   - Correct ROS2 launch file to be configurable
 - 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
