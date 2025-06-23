@@ -158,6 +158,25 @@ void NodeManager::stop()
   }
 }
 
+void NodeManager::printDevicesInfo() const
+{
+  size_t source_id = 0;
+  RS_INFO << "------------------------------------------------------" << RS_REND;
+  for (const auto& iter : sources_)
+  {
+    source_id++;
+    if (iter != nullptr)
+    {
+      RS_INFOL << "Source ID: " << source_id << RS_REND;
+      while (!iter->printDeviceInfo())
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+      }
+    }
+  }
+  RS_INFO << "------------------------------------------------------" << RS_REND;
+}
+
 NodeManager::~NodeManager()
 {
   stop();
