@@ -47,7 +47,6 @@ public:
   void init(const YAML::Node& config);
   void start();
   void stop();
-  void printDevicesInfo() const;
 
   ~NodeManager();
   NodeManager() = default;
