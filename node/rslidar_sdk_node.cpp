@@ -126,6 +126,7 @@ int main(int argc, char** argv)
   demo_ptr->start();
 
   RS_MSG << "RoboSense-LiDAR-Driver is running....." << RS_REND;
+  demo_ptr->printDevicesInfo();
 
 #ifdef ROS_FOUND
   ros::spin();
