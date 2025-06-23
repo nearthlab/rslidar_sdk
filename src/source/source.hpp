@@ -86,6 +86,11 @@ public:
   virtual void stop() {}
   virtual void regPointCloudCallback(DestinationPointCloud::Ptr dst);
   virtual void regPacketCallback(DestinationPacket::Ptr dst);
+  virtual bool printDeviceInfo() const {
+    RS_WARNING << "Source::printDeviceInfo() is not implemented in this base source class." << RS_REND;
+    const bool printed = false;
+    return printed;
+  }
   virtual ~Source() = default;
   Source(SourceType src_type);
 
