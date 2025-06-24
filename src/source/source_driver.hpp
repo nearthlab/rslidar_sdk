@@ -50,6 +50,7 @@ public:
   virtual void start();
   virtual void stop();
   virtual void regPacketCallback(DestinationPacket::Ptr dst);
+  virtual bool printDeviceInfo() const override final;
   virtual ~SourceDriver();
 
   SourceDriver(SourceType src_type);
@@ -173,6 +174,17 @@ inline void SourceDriver::init(const YAML::Node& config)
 inline void SourceDriver::start()
 {
   driver_ptr_->start();
+}
+
+inline bool SourceDriver::printDeviceInfo() const
+{
+  DeviceInfo device_info;
+  if (driver_ptr_ && driver_ptr_->getDeviceInfo(device_info))
+  {
+    device_info.print();
+    return true;
+  }
+  return false;
 }
 
 inline SourceDriver::~SourceDriver()

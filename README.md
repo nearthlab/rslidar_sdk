@@ -2,6 +2,8 @@
 
 ## 0 Changelog
 
+- 2025-06-23 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Print out device info (S/N, MAC, extrinsics, ...) when running a ROS driver node
 - 2025-06-17 [junwoopark](mailto:junwoo.park@nearthlab.com)
   - Default POINT_TYPE: XYZIRT to include timestamp
 - 2025-05-30 [junwoopark](mailto:junwoo.park@nearthlab.com)
