@@ -468,8 +468,10 @@ inline void DestinationPointCloudRos::init(const YAML::Node& config)
   yamlRead<std::string>(config["ros"], 
       "ros_send_point_cloud_topic", ros_send_topic, "rslidar_points");
 
+  /* @note: replaced by explicit QoS settings
   size_t ros_queue_length;
-  yamlRead<size_t>(config["ros"], "ros_queue_length", ros_queue_length, 100);
+  yamlRead<size_t>(config["ros"], "ros_queue_length", ros_queue_length, 10);
+  */
 
   static int node_index = 0;
   std::stringstream node_name;
@@ -477,13 +479,24 @@ inline void DestinationPointCloudRos::init(const YAML::Node& config)
 
   node_ptr_.reset(new rclcpp::Node(node_name.str()));
 
-  pub_ = node_ptr_->create_publisher<sensor_msgs::msg::PointCloud2>(ros_send_topic, ros_queue_length);
+   // 0.5 second queue size
+  constexpr size_t kLidarFrequency = 10; // Hz
+  constexpr size_t kLidarQueueSize = static_cast<size_t>(kLidarFrequency * 0.5f);
+  auto lidar_qos = rclcpp::SensorDataQoS();
+  lidar_qos.keep_last(kLidarQueueSize); /// @note == 5 is already default value of rclcpp::SensorDataQoS
+  pub_ = node_ptr_->create_publisher<sensor_msgs::msg::PointCloud2>(ros_send_topic, lidar_qos);
 
 #ifdef ENABLE_IMU_DATA_PARSE
   std::string ros_send_imu_data_topic;
   yamlRead<std::string>(config["ros"], 
       "ros_send_imu_data_topic", ros_send_imu_data_topic, "rslidar_imu_data");
-  imu_pub_ = node_ptr_->create_publisher<sensor_msgs::msg::Imu>(ros_send_imu_data_topic, 1000);
+  
+  // 0.5 second queue size
+  constexpr size_t kImuFrequency = 200; // Hz
+  constexpr size_t kImuQueueSize = static_cast<size_t>(kImuFrequency * 0.5f);
+  auto imu_qos = rclcpp::SensorDataQoS();
+  imu_qos.keep_last(kImuQueueSize);
+  imu_pub_ = node_ptr_->create_publisher<sensor_msgs::msg::Imu>(ros_send_imu_data_topic, imu_qos);
 #endif
 
 }
