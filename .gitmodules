@@ -1,0 +1,3 @@
+[submodule "src/rs_driver"]
+	path = src/rs_driver
+	url = git@github.com:nearthlab/rs_driver.git
