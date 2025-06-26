@@ -2,6 +2,8 @@
 
 ## 0 Changelog
 
+- 2025-06-24 [junwoopark](mailto:junwoo.park@nearthlab.com)
+  - Change default QoS of PCL & IMU data publishers as rclcpp::SensorDataQos()
 - 2025-06-23 [junwoopark](mailto:junwoo.park@nearthlab.com)
   - Print out device info (S/N, MAC, extrinsics, ...) when running a ROS driver node
 - 2025-06-17 [junwoopark](mailto:junwoo.park@nearthlab.com)
