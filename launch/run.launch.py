@@ -1,3 +1,5 @@
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
@@ -13,6 +15,11 @@ def generate_launch_description():
 
     Author: Junwoo Park <junwoo.park@nearthlab.com>
     """
+
+    package_name = 'rslidar_sdk'
+    package_share_dir = get_package_share_directory(package_name)
+    default_config = 'airy.yaml'
+    config_path = os.path.join(package_share_dir, 'config', default_config)
     
     namespace_arg = DeclareLaunchArgument(
         'namespace',
@@ -20,10 +27,10 @@ def generate_launch_description():
         description='Namespace for the ROS2 topics'
     )
     
-    DEFAULT_CONFIG_FILE = 'airy_ftrc.yaml'
+    
     config_file_arg = DeclareLaunchArgument(
         'config_file',
-        default_value=DEFAULT_CONFIG_FILE,
+        default_value=config_path,
         description='Configuration file for rslidar_sdk_node'
     )
     
@@ -31,7 +38,7 @@ def generate_launch_description():
     driver_node = Node(
         namespace=namespace,
         name='rslidar_driver_node',
-        package='rslidar_sdk',
+        package=package_name,
         executable='rslidar_sdk_node',
         output='screen',
         parameters=[{'config_file': LaunchConfiguration('config_file')}],
